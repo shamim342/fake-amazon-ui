@@ -10,12 +10,12 @@
 
 // export default firebaseConfig;
 const firebaseConfig = {
-    apiKey: "AIzaSyBEC9-tbbFBQreTTEQHy6lPqxJMMVBxE5c",
-    authDomain: "lifelab-f60c5.firebaseapp.com",
-    projectId: "lifelab-f60c5",
-    storageBucket: "lifelab-f60c5.appspot.com",
-    messagingSenderId: "401912509354",
-    appId: "1:401912509354:web:3ee7b08f6307d4a1f2b1d3"
+  apiKey: "AIzaSyCSU3aieB8UIiuEYbGo54jx2v2Mi8w8hhk",
+  authDomain: "ema-commerce.firebaseapp.com",
+  projectId: "ema-commerce",
+  storageBucket: "ema-commerce.appspot.com",
+  messagingSenderId: "672162616961",
+  appId: "1:672162616961:web:613a792bcee987548e5f80"
   };
 
   export default firebaseConfig;
