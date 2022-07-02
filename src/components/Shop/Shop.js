@@ -9,17 +9,24 @@ import { Link } from 'react-router-dom';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useCart(products);
+    const [page , setPage] = useState(0);
+    const [pageCount ,setPageCount] = useState(0)
     // products to be rendered on the UI
     const [displayProducts, setDisplayProducts] = useState([]);
+    const size = 10;
 
     useEffect(() => {
-        fetch('./products.json')
+        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
-                setProducts(data);
-                setDisplayProducts(data);
+                setProducts(data.products);
+                setDisplayProducts(data.products);
+                const count = data.count;
+                const pageNumber = Math.ceil(count / 10);
+                setPageCount(pageNumber);
+                
             });
-    }, []);
+    }, [page]);
 
 
 
@@ -67,6 +74,11 @@ const Shop = () => {
                         >
                         </Product>)
                     }
+                    <div className="pageNation ">
+                        {
+                            [...Array(pageCount).keys()].map(number=> <button key={number} className={number===page? "selected":''} onClick={()=>setPage(number)}>{number+1}</button>)
+                        }
+                    </div>
                 </div>
                 <div className="cart-container">
                     <Cart cart={cart}>
